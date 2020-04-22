@@ -1,0 +1,61 @@
+    clc;
+    clear all;
+
+    disp('Welcome to BMI calculator')  %Introduction to System
+    unit=input('Enter 1 for Imperial and 2 for SI unit : ');  %Taking input from the userfor the UNITS as per their preference
+
+
+    if unit==1
+        fprintf('%s The unit selected was','Imperial')              %Displaying the unit selected
+        disp(' ')
+
+        Weight=input('Enter your weight in lbs : ');                %Input data for weight
+
+        Height=input('Enter your height in ft. : ');                %Input data for height
+
+        BMI=((Weight/(Height)^2)*4.88);                             %logic for BMI calculator
+
+        Wmin = 18.5*(Height^2)*(1/4.88);                            %logic for minimum weight
+        fprintf('Your minimum healthy weight should be %.2f\n\n',Wmin)      %displaying the user what should be the min. healthy weight for perfect BMI
+
+        Wmax = 25*(Height^2)*(1/4.88);                              %logic for maximum weight
+        fprintf('Your maximum healthy weight should be %.2f\n\n',Wmax)     %displaying the user what should be the max. healthy weight for perfect BMI
+
+        fprintf('Your BMI is %.2f :\n\n',BMI)               %Displaying the BMI of the user
+    end
+
+    if unit==2
+            fprintf('The unit selected was %s\n\n','S.I.')
+
+            disp('to convert ft into metres,divide th feet by 3.281')
+            disp(' ')
+
+            Weight=input('Enter your weight in Kg : ');
+            Height=input('Enter your height in meters : ');
+            BMI=Weight/(Height)^2;
+
+            Wmin=18.5*(Height)^2;
+            Wmax=25*(Height)^2;
+            fprintf('Your minimum healthy weight should be %.2f \n\n', Wmin)
+            fprintf('Your Maximum healthy weight should be %.2f \n\n', Wmax)
+            fprintf('Your BMI is %.2f\n\n', BMI)
+
+    end
+    %%BMI Ranges
+    if BMI < 18.5 
+
+          disp('you are in the underweight range')
+
+          elseif (BMI > 18.5 && BMI <= 24.9)
+
+          disp('you are in the healthy weight range')
+
+          elseif (BMI > 25 && BMI <= 30) 
+
+          disp('you are in the overweight range')
+          elseif (BMI > 30 && BMI <= 39.9) 
+
+          disp('you are in the obese range')
+    else 
+          disp('Kindly enter valid ranges')
+    end
